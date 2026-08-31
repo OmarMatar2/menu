@@ -1,0 +1,67 @@
+<div class="app-layout" dir="rtl">
+  <!-- Top Hero Header -->
+  <app-hero></app-hero>
+
+  <!-- Step Progression Mini Navigator -->
+  <div class="steps-progress-nav" aria-label="مؤشر خطوات الطلب">
+    <div class="steps-nav-container">
+      <a href="#step-1" class="step-nav-pill" [class.step-active]="orderService.isStep1Complete()">
+        <span class="pill-num">١</span>
+        <span class="pill-text">اختر الوجبة</span>
+        <span class="pill-check">✓</span>
+      </a>
+      <div class="step-nav-arrow">←</div>
+      
+      <a href="#step-2" class="step-nav-pill" [class.step-active]="orderService.isStep2Complete()">
+        <span class="pill-num">٢</span>
+        <span class="pill-text">نوع التقديم</span>
+        <span class="pill-check">✓</span>
+      </a>
+      <div class="step-nav-arrow">←</div>
+
+      <a href="#step-3" class="step-nav-pill">
+        <span class="pill-num">٣</span>
+        <span class="pill-text">الإضافات</span>
+        @if (orderService.selectedExtras().length > 0) {
+          <span class="pill-count">({{ orderService.selectedExtras().length }})</span>
+        }
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Responsive Content Container -->
+  <main class="main-ordering-container">
+    <div class="ordering-layout-grid">
+      <!-- Steps Column (Left in RTL / Start) -->
+      <div class="menu-steps-column">
+        <!-- Section 1: Meal Picker -->
+        <app-meal-picker></app-meal-picker>
+
+        <!-- Section 2: Side Picker -->
+        <app-side-picker></app-side-picker>
+
+        <!-- Section 3: Extras List -->
+        <app-extras-list></app-extras-list>
+      </div>
+
+      <!-- Order Summary Column (Sticky on Desktop) -->
+      <div class="summary-column">
+        <app-order-summary></app-order-summary>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating Mobile Sticky Bar -->
+  <app-mobile-bar></app-mobile-bar>
+
+  <!-- Footer Section -->
+  <app-footer></app-footer>
+
+  <!-- Toast Notification when details are copied -->
+  @if (orderService.isCopied()) {
+    <div class="copied-toast" role="alert" aria-live="assertive">
+      <span class="toast-icon">📋</span>
+      <span class="toast-message">تم نسخ ملخص الطلب إلى الحافظة بنجاح!</span>
+    </div>
+  }
+</div>
