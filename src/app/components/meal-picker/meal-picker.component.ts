@@ -42,27 +42,25 @@ import { FoodIconComponent } from '../food-icon/food-icon.component';
             (keydown.enter)="selectMeal(meal.id)"
             (keydown.space)="$event.preventDefault(); selectMeal(meal.id)">
             
-            <!-- Optional Badge ribbon (e.g. وجبة التوفير, الوجبة الاقتصادية, الوجبة العائلية) -->
-            @if (meal.badge) {
-              <div class="card-badge-container">
-                <span 
-                  class="badge-pill" 
-                  [class.badge-gold]="meal.badgeType === 'gold'"
-                  [class.badge-flame]="meal.badgeType === 'flame'"
-                  [class.badge-green]="meal.badgeType === 'green'">
-                  @if (meal.badgeType === 'flame') {
-                    <app-food-icon name="flame" size="sm"></app-food-icon>
-                  }
-                  {{ meal.badge }}
-                </span>
-              </div>
-            }
-
-            <!-- Card Visual Illustration -->
+            <!-- Card Visual Photo (full-bleed, spans the card's top edge to edge) -->
             <div class="meal-visual">
-              <div class="visual-plate">
-                <app-food-icon [name]="meal.iconKey" size="lg"></app-food-icon>
-              </div>
+              <app-food-icon [name]="meal.iconKey" size="full"></app-food-icon>
+
+              <!-- Optional Badge ribbon (e.g. وجبة التوفير, الوجبة الاقتصادية, الوجبة العائلية) -->
+              @if (meal.badge) {
+                <div class="card-badge-container">
+                  <span 
+                    class="badge-pill" 
+                    [class.badge-gold]="meal.badgeType === 'gold'"
+                    [class.badge-flame]="meal.badgeType === 'flame'"
+                    [class.badge-green]="meal.badgeType === 'green'">
+                    @if (meal.badgeType === 'flame') {
+                      <app-food-icon name="flame" size="sm"></app-food-icon>
+                    }
+                    {{ meal.badge }}
+                  </span>
+                </div>
+              }
             </div>
 
             <!-- Card Content Body -->
@@ -190,10 +188,10 @@ import { FoodIconComponent } from '../food-icon/food-icon.component';
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      padding: var(--space-md);
       border-width: 2px;
       user-select: none;
       position: relative;
+      overflow: hidden; /* clips the full-bleed photo to the card's rounded corners */
     }
 
     .meal-card.is-popular {
@@ -202,8 +200,8 @@ import { FoodIconComponent } from '../food-icon/food-icon.component';
 
     .card-badge-container {
       position: absolute;
-      top: 12px;
-      left: 12px;
+      top: 10px;
+      left: 10px;
       z-index: 2;
     }
 
@@ -220,20 +218,32 @@ import { FoodIconComponent } from '../food-icon/food-icon.component';
     }
 
     .meal-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: var(--space-sm) 0 var(--space-md);
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
       background: radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, transparent 70%);
-      border-radius: var(--radius-md);
-      margin-bottom: var(--space-sm);
     }
 
-    .visual-plate {
+    /* subtle fade at the bottom of the photo so the badge/body edge reads cleanly */
+    .meal-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0.12) 100%);
+      pointer-events: none;
+    }
+
+    /* app-food-icon's host element rendered with size="full" — styled by tag since
+       its internal template is view-encapsulated and not reachable from here */
+    .meal-visual app-food-icon {
+      display: flex;
+      width: 100%;
+      height: 100%;
       transition: transform var(--transition-bounce);
     }
 
-    .meal-card:hover .visual-plate {
+    .meal-card:hover .meal-visual app-food-icon {
       transform: scale(1.06);
     }
 
@@ -241,6 +251,7 @@ import { FoodIconComponent } from '../food-icon/food-icon.component';
       display: flex;
       flex-direction: column;
       flex: 1;
+      padding: var(--space-md);
     }
 
     .meal-title-row {

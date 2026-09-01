@@ -6,193 +6,34 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '[class.host-full]': "size() === 'full'"
+  },
   template: `
-    <div class="food-icon-container" [class.icon-sm]="size() === 'sm'" [class.icon-md]="size() === 'md'" [class.icon-lg]="size() === 'lg'" [class.icon-xl]="size() === 'xl'">
+    <div class="food-icon-container" [class.icon-sm]="size() === 'sm'" [class.icon-md]="size() === 'md'" [class.icon-lg]="size() === 'lg'" [class.icon-xl]="size() === 'xl'" [class.icon-full]="size() === 'full'">
       @switch (name()) {
         @case ('half-chicken') {
-          <!-- Half Chicken: Golden crisp roasted half bird with grill marks and spice dusting -->
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icon" aria-hidden="true">
-            <ellipse cx="40" cy="65" rx="30" ry="8" fill="#1C1512" fill-opacity="0.1" />
-            <!-- Plate base -->
-            <path d="M12 62C12 62 24 67 40 67C56 67 68 62 68 62" stroke="#E5D3C1" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Half chicken body -->
-            <path d="M22 55C18 45 20 32 30 24C38 18 48 18 56 25C62 31 64 42 61 52C58 59 48 62 38 62C28 62 23 58 22 55Z" fill="url(#grad-half-roast)" stroke="#B45309" stroke-width="1.5"/>
-            <!-- Crisp Wing section -->
-            <path d="M46 32C52 35 56 42 53 48C50 53 43 53 38 48" fill="#D97706" stroke="#92400E" stroke-width="1.2"/>
-            <!-- Drumstick bone -->
-            <path d="M24 45L15 48C13 49 12 52 14 54C15 55 17 55 18 54L26 49" fill="#FEF3C7" stroke="#B45309" stroke-width="1.2"/>
-            <!-- Bone tip -->
-            <circle cx="13" cy="51" r="2.5" fill="#FEF3C7" stroke="#B45309" stroke-width="1"/>
-            <circle cx="14" cy="55" r="2.5" fill="#FEF3C7" stroke="#B45309" stroke-width="1"/>
-            <!-- Char / Grill Marks -->
-            <path d="M34 27L42 33M36 38L47 43M30 46L40 52" stroke="#78350F" stroke-width="1.8" stroke-linecap="round"/>
-            <!-- Golden highlights & spices -->
-            <path d="M35 22C42 19 49 20 53 25" stroke="#FDE68A" stroke-width="1.5" stroke-linecap="round"/>
-            <circle cx="44" cy="28" r="0.8" fill="#B91C1C"/>
-            <circle cx="50" cy="36" r="0.8" fill="#B91C1C"/>
-            <circle cx="38" cy="42" r="0.8" fill="#B91C1C"/>
-            <!-- Steam wisp -->
-            <path d="M40 16C39 12 43 10 41 6M48 18C47 14 50 12 49 8" stroke="#D97706" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.7"/>
-            <defs>
-              <linearGradient id="grad-half-roast" x1="20" y1="20" x2="60" y2="60" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#F59E0B"/>
-                <stop offset="0.6" stop-color="#D97706"/>
-                <stop offset="1" stop-color="#B45309"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <img src="assets/half.png" alt="نصف دجاجة مشوية" class="icon-image" loading="lazy" />
         }
 
         @case ('whole-chicken') {
-          <!-- Whole Chicken: Golden Rotisserie Roasted Whole Bird -->
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icon" aria-hidden="true">
-            <ellipse cx="40" cy="67" rx="34" ry="7" fill="#1C1512" fill-opacity="0.12" />
-            <!-- Oval Platter -->
-            <ellipse cx="40" cy="62" rx="32" ry="9" fill="#FFFFFF" stroke="#E2CFBB" stroke-width="2"/>
-            <ellipse cx="40" cy="62" rx="28" ry="7" fill="#FDF8F3"/>
-            <!-- Chicken Breast and Body -->
-            <path d="M23 48C21 34 28 22 40 22C52 22 59 34 57 48C56 57 49 61 40 61C31 61 24 57 23 48Z" fill="url(#grad-whole-body)" stroke="#92400E" stroke-width="1.5"/>
-            <!-- Left Drumstick -->
-            <path d="M24 46C20 44 16 48 18 54C20 60 27 58 29 53L24 46Z" fill="#D97706" stroke="#92400E" stroke-width="1.2"/>
-            <path d="M16 54L11 57" stroke="#FEF3C7" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="10" cy="57" r="2" fill="#FEF3C7" stroke="#B45309" stroke-width="1"/>
-            <!-- Right Drumstick -->
-            <path d="M56 46C60 44 64 48 62 54C60 60 53 58 51 53L56 46Z" fill="#D97706" stroke="#92400E" stroke-width="1.2"/>
-            <path d="M64 54L69 57" stroke="#FEF3C7" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="70" cy="57" r="2" fill="#FEF3C7" stroke="#B45309" stroke-width="1"/>
-            <!-- Breast Separation & Golden Glaze -->
-            <path d="M40 24C39 34 39 46 40 55" stroke="#78350F" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Char grill marks -->
-            <path d="M30 32L36 36M44 36L50 32M29 42L36 45M44 45L51 42" stroke="#78350F" stroke-width="1.8" stroke-linecap="round"/>
-            <!-- Rosemary garnish -->
-            <path d="M40 63C43 60 48 61 52 59" stroke="#15803D" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M44 61L45 59M48 60L49 58" stroke="#16A34A" stroke-width="1.2" stroke-linecap="round"/>
-            <!-- Steam -->
-            <path d="M36 17C35 12 39 10 38 6M44 17C43 12 47 10 46 6" stroke="#F59E0B" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="2 3"/>
-            <defs>
-              <linearGradient id="grad-whole-body" x1="40" y1="20" x2="40" y2="61" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#F59E0B"/>
-                <stop offset="0.7" stop-color="#D97706"/>
-                <stop offset="1" stop-color="#B45309"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <img src="assets/one.png" alt="دجاجة كاملة مشوية" class="icon-image" loading="lazy" />
         }
 
         @case ('one-half-chicken') {
-          <!-- 1.5 Chickens: Whole + Half Chicken Duo -->
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icon" aria-hidden="true">
-            <ellipse cx="40" cy="68" rx="36" ry="7" fill="#1C1512" fill-opacity="0.12" />
-            <!-- Back Half Chicken -->
-            <g opacity="0.95" transform="translate(-10, -4)">
-              <path d="M22 55C18 45 20 32 30 24C38 18 48 18 56 25C62 31 64 42 61 52C58 59 48 62 38 62C28 62 23 58 22 55Z" fill="#CA8A04" stroke="#854D0E" stroke-width="1.2"/>
-              <path d="M34 27L42 33M36 38L47 43" stroke="#713F12" stroke-width="1.5" stroke-linecap="round"/>
-            </g>
-            <!-- Foreground Whole Chicken -->
-            <g transform="translate(10, 2)">
-              <path d="M23 48C21 34 28 22 40 22C52 22 59 34 57 48C56 57 49 61 40 61C31 61 24 57 23 48Z" fill="url(#grad-duo-main)" stroke="#92400E" stroke-width="1.5"/>
-              <path d="M40 24C39 34 39 46 40 55" stroke="#78350F" stroke-width="1.4" stroke-linecap="round"/>
-              <path d="M29 36L35 40M45 40L51 36" stroke="#78350F" stroke-width="1.6" stroke-linecap="round"/>
-              <path d="M24 46C20 44 16 48 18 54C20 60 27 58 29 53L24 46Z" fill="#D97706" stroke="#92400E" stroke-width="1.2"/>
-              <circle cx="10" cy="57" r="2" fill="#FEF3C7" stroke="#B45309" stroke-width="1"/>
-            </g>
-            <!-- +0.5 Tag Badge -->
-            <rect x="6" y="10" width="24" height="15" rx="7.5" fill="#B91C1C" />
-            <text x="18" y="21" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-family="'Cairo', sans-serif">١.٥</text>
-            <defs>
-              <linearGradient id="grad-duo-main" x1="40" y1="22" x2="40" y2="61" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#FBBF24"/>
-                <stop offset="0.6" stop-color="#D97706"/>
-                <stop offset="1" stop-color="#B45309"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <img src="assets/one-half.png" alt="دجاجة ونصف" class="icon-image" loading="lazy" />
         }
 
         @case ('two-chickens') {
-          <!-- 2 Chickens: Twin Golden Roast Birds with Value Crown -->
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icon" aria-hidden="true">
-            <ellipse cx="40" cy="68" rx="36" ry="7" fill="#1C1512" fill-opacity="0.12" />
-            <!-- Left Chicken -->
-            <g transform="translate(-13, 2)">
-              <path d="M23 48C21 34 28 24 38 24C48 24 54 34 52 48C51 56 45 60 38 60C31 60 24 56 23 48Z" fill="#D97706" stroke="#92400E" stroke-width="1.2"/>
-              <path d="M38 26C37 34 37 44 38 52" stroke="#78350F" stroke-width="1.2" stroke-linecap="round"/>
-              <path d="M28 36L34 40M42 40L48 36" stroke="#78350F" stroke-width="1.4" stroke-linecap="round"/>
-            </g>
-            <!-- Right Chicken -->
-            <g transform="translate(13, 2)">
-              <path d="M23 48C21 34 28 24 38 24C48 24 54 34 52 48C51 56 45 60 38 60C31 60 24 56 23 48Z" fill="url(#grad-twin-right)" stroke="#92400E" stroke-width="1.4"/>
-              <path d="M38 26C37 34 37 44 38 52" stroke="#78350F" stroke-width="1.2" stroke-linecap="round"/>
-              <path d="M28 36L34 40M42 40L48 36" stroke="#78350F" stroke-width="1.4" stroke-linecap="round"/>
-            </g>
-            <!-- Flame & Savings Crown -->
-            <circle cx="40" cy="18" r="11" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.5"/>
-            <path d="M40 10C42 13 45 15 45 19C45 22 43 24 40 25C37 24 35 22 35 19C35 15 38 13 40 10Z" fill="#DC2626"/>
-            <path d="M40 14C41 16 43 17 43 19C43 21 42 22 40 23C38 22 37 21 37 19C37 17 39 16 40 14Z" fill="#FBBF24"/>
-            <defs>
-              <linearGradient id="grad-twin-right" x1="38" y1="24" x2="38" y2="60" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#FBBF24"/>
-                <stop offset="0.7" stop-color="#D97706"/>
-                <stop offset="1" stop-color="#9A3412"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <img src="assets/two.png" alt="دجاجتين مشويتين" class="icon-image" loading="lazy" />
         }
 
         @case ('three-chickens') {
-          <!-- 3 Chickens: Trio Roasted Feast -->
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icon" aria-hidden="true">
-            <ellipse cx="40" cy="69" rx="37" ry="6" fill="#1C1512" fill-opacity="0.12" />
-            <!-- Back Left -->
-            <g transform="translate(-18, -6) scale(0.85)">
-              <path d="M23 48C21 34 28 24 38 24C48 24 54 34 52 48C51 56 45 60 38 60C31 60 24 56 23 48Z" fill="#B45309" stroke="#78350F" stroke-width="1.2"/>
-            </g>
-            <!-- Back Right -->
-            <g transform="translate(20, -6) scale(0.85)">
-              <path d="M23 48C21 34 28 24 38 24C48 24 54 34 52 48C51 56 45 60 38 60C31 60 24 56 23 48Z" fill="#B45309" stroke="#78350F" stroke-width="1.2"/>
-            </g>
-            <!-- Center Front -->
-            <g transform="translate(2, 4)">
-              <path d="M23 48C21 34 28 22 40 22C52 22 59 34 57 48C56 57 49 61 40 61C31 61 24 57 23 48Z" fill="url(#grad-trio-center)" stroke="#92400E" stroke-width="1.5"/>
-              <path d="M40 24C39 34 39 46 40 55" stroke="#78350F" stroke-width="1.4" stroke-linecap="round"/>
-              <path d="M29 36L35 40M45 40L51 36" stroke="#78350F" stroke-width="1.6" stroke-linecap="round"/>
-            </g>
-            <!-- Star Count Badge -->
-            <circle cx="40" cy="14" r="10" fill="#D97706" stroke="#FEF3C7" stroke-width="1.5"/>
-            <text x="40" y="18" font-size="10" font-weight="900" fill="#FFFFFF" text-anchor="middle" font-family="'Cairo', sans-serif">٣</text>
-            <defs>
-              <linearGradient id="grad-trio-center" x1="40" y1="22" x2="40" y2="61" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#FBBF24"/>
-                <stop offset="0.6" stop-color="#D97706"/>
-                <stop offset="1" stop-color="#B45309"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <img src="assets/three.png" alt="ثلاث دجاجات مشوية" class="icon-image" loading="lazy" />
         }
 
         @case ('four-chickens') {
-          <!-- 4 Chickens: Grand Family Banquet -->
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-icon" aria-hidden="true">
-            <ellipse cx="40" cy="70" rx="38" ry="6" fill="#1C1512" fill-opacity="0.15" />
-            <!-- Oval Banquet Tray -->
-            <ellipse cx="40" cy="66" rx="36" ry="8" fill="#FEF3C7" stroke="#D97706" stroke-width="1.5"/>
-            <!-- 4 roast birds arrangement -->
-            <g transform="translate(-20, -6) scale(0.75)">
-              <path d="M23 48C21 34 28 24 38 24C48 24 54 34 52 48C51 56 45 60 38 60C31 60 24 56 23 48Z" fill="#B45309"/>
-            </g>
-            <g transform="translate(24, -6) scale(0.75)">
-              <path d="M23 48C21 34 28 24 38 24C48 24 54 34 52 48C51 56 45 60 38 60C31 60 24 56 23 48Z" fill="#B45309"/>
-            </g>
-            <g transform="translate(-10, 4) scale(0.85)">
-              <path d="M23 48C21 34 28 22 40 22C52 22 59 34 57 48C56 57 49 61 40 61C31 61 24 57 23 48Z" fill="#D97706" stroke="#92400E" stroke-width="1.2"/>
-            </g>
-            <g transform="translate(13, 4) scale(0.85)">
-              <path d="M23 48C21 34 28 22 40 22C52 22 59 34 57 48C56 57 49 61 40 61C31 61 24 57 23 48Z" fill="#F59E0B" stroke="#92400E" stroke-width="1.2"/>
-            </g>
-            <!-- Family Feast Crown / Badge -->
-            <rect x="26" y="8" width="28" height="15" rx="7.5" fill="#15803D" stroke="#BBF7D0" stroke-width="1"/>
-            <text x="40" y="19" font-size="9" font-weight="bold" fill="#FFFFFF" text-anchor="middle" font-family="'Cairo', sans-serif">عائلي ٤</text>
-          </svg>
+          <img src="assets/four.png" alt="أربع دجاجات - وجبة عائلية" class="icon-image" loading="lazy" />
         }
 
         @case ('side-rice') {
@@ -477,6 +318,11 @@ import { CommonModule } from '@angular/common';
       align-items: center;
       justify-content: center;
     }
+    :host.host-full {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
     .food-icon-container {
       display: inline-flex;
       align-items: center;
@@ -488,13 +334,23 @@ import { CommonModule } from '@angular/common';
       height: 100%;
       display: block;
     }
+    .icon-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .icon-sm { width: 24px; height: 24px; }
     .icon-md { width: 44px; height: 44px; }
     .icon-lg { width: 72px; height: 72px; }
     .icon-xl { width: 96px; height: 96px; }
+    .icon-full {
+      width: 100%;
+      height: 100%;
+    }
   `]
 })
 export class FoodIconComponent {
   readonly name = input.required<string>();
-  readonly size = input<'sm' | 'md' | 'lg' | 'xl'>('md');
+  readonly size = input<'sm' | 'md' | 'lg' | 'xl' | 'full'>('md');
 }

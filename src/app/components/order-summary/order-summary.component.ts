@@ -32,7 +32,7 @@ import { FoodIconComponent } from '../food-icon/food-icon.component';
           <!-- Main Meal Selected -->
           <div class="receipt-item main-item">
             <div class="item-visual">
-              <app-food-icon [name]="orderService.selectedMeal().iconKey" size="sm"></app-food-icon>
+              <!-- <app-food-icon [name]="orderService.selectedMeal().iconKey" size="sm"></app-food-icon> -->
             </div>
             <div class="item-info">
               <span class="item-name">{{ orderService.selectedMeal().title }}</span>
