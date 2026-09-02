@@ -86,8 +86,8 @@ export const SIDE_OPTIONS: SideOption[] = [
   {
     id: 'side-roasted',
     title: 'مع البطاطا والبصل المشوي',
-    includedItems: ['بطاطا مشوية حبة كاملة', 'بصل مشوي ومكرمل', 'صوص الثوم'],
-    description: 'بطاطا كاملة مشوية في قلب الحطب مع بصل مشوي مكرمل بنكهة الدخان الرائعة وثومية كريمية',
+    includedItems: ['بطاطا مشوية حبة كاملة', 'بصل مشوي', 'صوص الثوم'],
+    description: 'بطاطا كاملة مشوية في قلب الحطب مع بصل مشوي بنكهة الدخان الرائعة وثومية كريمية',
     iconKey: 'side-roasted',
     badgeText: 'مجاني ومشمول مع الوجبة'
   }
@@ -104,10 +104,10 @@ export const EXTRA_OPTIONS: ExtraOption[] = [
   },
   {
     id: 'extra-salad',
-    title: 'سلطة خضار',
+    title: 'السلطات',
     price: 0.50,
     category: 'salad',
-    description: 'سلطة بلدية طازجة مع الخيار، البندورة والنعناع وزيت الزيتون',
+    description: 'سلطة بلدية طازجة مع الخيار، فتوش، تبولة',
     iconKey: 'extra-salad'
   },
   {
@@ -131,7 +131,7 @@ export const EXTRA_OPTIONS: ExtraOption[] = [
     title: 'صوص الدقوس',
     price: 0.25,
     category: 'sauce',
-    description: 'علبة دقوس طماطم وفلفل حار بالخلطة الخاصة',
+    description: 'علبة دقوس طماطم بالخلطة الخاصة',
     iconKey: 'extra-daqqous'
   }
 ];
