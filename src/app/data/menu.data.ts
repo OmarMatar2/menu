@@ -7,7 +7,7 @@ export const MEAL_OPTIONS: MealOption[] = [
     price: 3.00,
     servesText: 'تكفي شخص واحد',
     chickensCount: 0.5,
-    description: 'نصف دجاجة متبلة ومحمرة على الحطب مع الخلطة الأردنية الشهية',
+    description: 'نصف دجاجة متبلة ومحمرة في الفرن مع الخلطة الأردنية الشهية',
     iconKey: 'half-chicken'
   },
   {
@@ -19,7 +19,7 @@ export const MEAL_OPTIONS: MealOption[] = [
     badge: 'الأكثر طلباً 🔥',
     badgeType: 'flame',
     popular: true,
-    description: 'دجاجة طازجة كاملة مشوية على الحطب، مقرمشة من الخارج وطرية من الداخل',
+    description: 'دجاجة طازجة كاملة مشوية في الفرن، مقرمشة من الخارج وطرية من الداخل',
     iconKey: 'whole-chicken'
   },
   {
@@ -70,7 +70,7 @@ export const SIDE_OPTIONS: SideOption[] = [
   {
     id: 'side-rice',
     title: 'مع الرز',
-    includedItems: ['رز مبهر فاخر', 'صوص الدقوس الحار', 'لبن رائب طازج'],
+    includedItems: ['رز مبهر فاخر', 'صوص الدقوس', 'لبن رائب طازج'],
     description: 'أرز فاخر مفلفل بالبهارات الأردنية الخاصة، يقدم مع صلصة الدقوس واللبن',
     iconKey: 'side-rice',
     badgeText: 'مجاني ومشمول مع الوجبة'

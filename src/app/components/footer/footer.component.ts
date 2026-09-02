@@ -45,8 +45,8 @@ import { FoodIconComponent } from '../food-icon/food-icon.component';
 
           <div class="promise-item">
             <span class="promise-icon">🔥</span>
-            <h3 class="promise-title">شواء على الحطب</h3>
-            <p class="promise-text">نكهة التدخين الأصيلة بتتبيلة البهارات السرية</p>
+            <h3 class="promise-title">شواء في الفرن</h3>
+            <p class="promise-text"> مع نكهة التدخين الأصيلة بتتبيلة البهارات السرية</p>
           </div>
 
           <div class="promise-item">
@@ -69,14 +69,14 @@ import { FoodIconComponent } from '../food-icon/food-icon.component';
         </div>
 
         <!-- Bottom Copyright / Closing Sign-off -->
-        <div class="footer-bottom-bar">
+        <!-- <div class="footer-bottom-bar">
           <p class="copyright-text">
             جميع الحقوق محفوظة © {{ currentYear }} لمطعم <strong>دجاجة بالقنية</strong> — من طلبك تبدأ الحكاية
           </p>
           <p class="closing-quote font-traditional">
             « {{ orderService.restaurant.closingSlogan }} »
           </p>
-        </div>
+        </div> -->
       </div>
     </footer>
   `,

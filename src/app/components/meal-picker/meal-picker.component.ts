@@ -19,7 +19,7 @@ import { FoodIconComponent } from '../food-icon/food-icon.component';
         </div>
         <div class="step-titles">
           <h2 id="step-1-heading" class="step-title">اختر الوجبة وحجم الدجاج</h2>
-          <p class="step-subtitle">دجاج مشوي على الحطب بخلطة التوابل الأردنية الشهية</p>
+          <p class="step-subtitle">دجاج مشوي بخلطة التوابل الأردنية الشهية</p>
         </div>
       </div>
 
